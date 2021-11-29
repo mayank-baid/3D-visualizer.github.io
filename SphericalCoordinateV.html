@@ -108,18 +108,55 @@
             var thetaTo = document.getElementById("cons-spherical-to-theta").value;
             var phiFrom = document.getElementById("cons-spherical-from-phi").value;
             var phiTo = document.getElementById("cons-spherical-to-phi").value;
+            var result =document.getElementById("thetaFrom").checked;
+            var result2 = document.getElementById("thetaTo").checked;
+            if(!result && !result2)
+            {
+               removeVolumeCylinder();
+               return;
+            }
+            result = document.getElementById("rTo").checked;
+            if(!document.getElementById("rFrom").checked)
+            {
+               rFrom = 0;
+            }
+            if(!result)
+            {
+                rTo = 0;
+            }
+            if(!document.getElementById("thetaFrom").checked)
+            {
+               thetaFrom = 0;
+            }
+            if(!document.getElementById("thetaTo").checked)
+            {
+                thetaTo = 0;
+            }
+            if(!document.getElementById("phiFrom").checked)
+            {
+               phiFrom = 0;
+            }
+            if(!document.getElementById("phiTo").checked)
+            {
+                phiTo = 0;
+            }
+            
 
             var r;
 
+            if(thetaFrom == thetaTo){
+                alert("Invalid input");
+                removeVolumeSpherical();
+                return;
+
+            }
+
             if (thetaFrom == "" || thetaTo == "" || phiFrom == "" || phiTo == "") {
-                alert("invalid input");
+                alert("Invalid input");
                 removeVolumeSpherical();
                 return;
             }
-            // if(thetaFrom > 90 || thetaFrom<0 || thetaTo > 90 || thetaTo<0 || phiFrom > 90 || phiFrom<0 || phiTo > 90 || phiTo < 0){
-            //     alert("all angle must be in [0,90]");
-            //     removeVolumeSpherical();
-            // }
+            
 
 
             thetaFrom *= deg2rad;
@@ -460,8 +497,10 @@
             return (new THREE.Vector3(y, z, x));
 
         }
+        function thetaToChange(){
+           console.log(thetaTo);
 
-
+        }
         function addVolumeSpherical() {
             volumeSphereShow = true;
         }
@@ -809,6 +848,7 @@
             return (new THREE.Vector3(y, z, x));
         }
 
+        
         function addVolumeCylinder() {
             volumeCylinderShow = true;
         }
@@ -1688,6 +1728,8 @@
 
     <div class="container-top">
         <div class="row">
+
+            
             <div class="col1">
                 <table>
                     <tbody>
@@ -1709,32 +1751,37 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="cText">
-                                <div><b>r :</b>
+                                <div><b>r (m) :</b>
                                     <input class="cons-input" id="cons-spherical-from-r" type="number" step="0.1"
-                                        min="0.1" max="3">
-                                    <input type="checkbox" onchange="" style="text-align:center;">
-                                    Show Surface
+                                        min="0.1" max="3" style="margin-left: 20px;">
+                                    <input id = "rFrom"type="checkbox"  style="text-align:center;">
+                                    Show
                                     <input class="cons-input" id="cons-spherical-to-r" type="number" step="0.1"
                                         min="0.1" max="3">
-                                    m
+                                        <input id = "rTO"type="checkbox"  style="text-align:center;">
+                                    Show
+                                    
                                 </div>
-                                <div><b>&theta; :</b>
+                                <div><b>&theta; (deg) :</b>
                                     <input class="cons-input" id="cons-spherical-from-theta" type="number" step="5"
                                         min="0" max="90">
-                                    <input type="checkbox" onchange="" style="text-align:center;">
-                                    Show Surface
+                                    <input id = "thetaFrom"type="checkbox"  style="text-align:center;">
+                                    Show
                                     <input class="cons-input" id="cons-spherical-to-theta" type="number" step="5"
                                         min="0" max="90">
-                                    deg
+                                        <input id= "thetaTo" type="checkbox" style="text-align:center;">
+                                    Show
                                 </div>
-                                <div><b>&phi;:</b>
+                                <div><b>&phi; (deg) :</b>
                                     <input class="cons-input" id="cons-spherical-from-phi" type="number" step="5"
-                                        min="0" max="90">
-                                    <input type="checkbox" onchange="" style="text-align:center;">
-                                    Show Surface
+                                        min="0" max="90" style="margin-left: 2px;">
+                                    <input id = "phiTo"type="checkbox" style="text-align:center;">
+                                    Show
                                     <input class="cons-input" id="cons-spherical-to-phi" type="number" step="5" min="0"
                                         max="90">
-                                    deg
+                                        <input id = "phiFrom" type="checkbox" style="text-align:center;">
+                                    Show
+
                                 </div>
                             </div>
                         </div>

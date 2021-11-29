@@ -1049,6 +1049,9 @@
         };
 
 
+
+
+
     </script>
 
     <script>
@@ -1278,8 +1281,7 @@
 
             zScene.position.set(-5, 150, 0);
             scene.add(zScene);
-
-
+            
 
             //////////////////////////////////
 
@@ -1453,9 +1455,19 @@
             }
         }
 
+
+        function AutoRotationMode(){
+            
+            controls.autoRotate = true;
+            camera.lookAt(constR_scene)
+        }
+
+        function StopRotationMode(){
+            controls.autoRotate = false;
+        }
+
         // function show_trace(){
         //     if(document.getElementById("trace_box").checked==true){
-
         //         var z = vRho*Math.cos(vPhi); 
         //         var x = vRho*Math.sin(vPhi); 
         //         var y = vR*Math.cos(vTheta); 

@@ -1438,44 +1438,15 @@
             }
         }
 
-        var trace_x;
-        var trace_y;
-        var trace_z;
-
-        function setObvPointTrace() {
-            if (document.getElementById("trace_box").checked == true) {
-                observationPointTrace = new THREE.Group();
-                console.log("checked");
-                trace_x = obvPoint_scene.position.x;
-                trace_y = obvPoint_scene.position.y;
-                trace_z = obvPoint_scene.position.z;
-            }
-            else {
-                scene.remove(observationPointTrace);
-            }
+        function AutoRotationMode(){
+            
+            controls.autoRotate = true;
+            camera.lookAt(constR_scene)
         }
 
-        // function show_trace(){
-        //     if(document.getElementById("trace_box").checked==true){
-
-        //         var z = vRho*Math.cos(vPhi); 
-        //         var x = vRho*Math.sin(vPhi); 
-        //         var y = vR*Math.cos(vTheta); 
-
-        //         if(Math.abs(trace_x-x)>=10 || Math.abs(trace_y-y)>=10 || Math.abs(trace_z-z)>=10){
-        //             obj = obvPoint_scene.clone();
-        //             scene.remove(observationPointTrace);
-        //             observationPointTrace.add(obj);
-        //             scene.add(observationPointTrace);
-
-        //             trace_x = x;
-        //             trace_y = y;
-        //             trace_z = z;
-
-        //         }
-        //     }
-        //     // console.log(value);
-        // }
+        function StopRotationMode(){
+            controls.autoRotate = false;
+        }
 
 
 
