@@ -108,55 +108,49 @@
             var thetaTo = document.getElementById("cons-spherical-to-theta").value;
             var phiFrom = document.getElementById("cons-spherical-from-phi").value;
             var phiTo = document.getElementById("cons-spherical-to-phi").value;
-            var result =document.getElementById("thetaFrom").checked;
-            var result2 = document.getElementById("thetaTo").checked;
-            if(!result && !result2)
-            {
-               removeVolumeCylinder();
-               return;
-            }
-            result = document.getElementById("rTo").checked;
-            if(!document.getElementById("rFrom").checked)
-            {
-               rFrom = 0;
-            }
-            if(!result)
-            {
-                rTo = 0;
-            }
-            if(!document.getElementById("thetaFrom").checked)
-            {
-               thetaFrom = 0;
-            }
-            if(!document.getElementById("thetaTo").checked)
-            {
-                thetaTo = 0;
-            }
-            if(!document.getElementById("phiFrom").checked)
-            {
-               phiFrom = 0;
-            }
-            if(!document.getElementById("phiTo").checked)
-            {
-                phiTo = 0;
-            }
-            
+
+
 
             var r;
 
-            if(thetaFrom == thetaTo){
-                alert("Invalid input");
-                removeVolumeSpherical();
-                return;
 
-            }
+
 
             if (thetaFrom == "" || thetaTo == "" || phiFrom == "" || phiTo == "") {
                 alert("Invalid input");
                 removeVolumeSpherical();
                 return;
             }
-            
+            if (!(document.getElementById("thetaFrom").checked) && !(document.getElementById("thetaTo").checked
+            )) {
+                removeVolumeCylinder();
+                return;
+            }
+
+            if (!(document.getElementById("rFrom").checked)) {
+                rFrom = 0;
+            }
+            if (!(document.getElementById("rTo").checked)) {
+                rTo = 0;
+            }
+            if (!(document.getElementById("thetaFrom").checked)) {
+                thetaFrom = 0;
+            }
+            if (!(document.getElementById("thetaTo").checked)) {
+                thetaTo = 0.00000001;
+            }
+            if (!(document.getElementById("phiFrom").checked)) {
+                phiFrom = 0;
+            }
+            if (!(document.getElementById("phiTo").checked)) {
+                phiTo = 0;
+            }
+            if (thetaFrom == thetaTo) {
+                alert("Invalid input");
+                removeVolumeSpherical();
+                return;
+
+            }
 
 
             thetaFrom *= deg2rad;
@@ -497,8 +491,8 @@
             return (new THREE.Vector3(y, z, x));
 
         }
-        function thetaToChange(){
-           console.log(thetaTo);
+        function thetaToChange() {
+            console.log(thetaTo);
 
         }
         function addVolumeSpherical() {
@@ -848,7 +842,7 @@
             return (new THREE.Vector3(y, z, x));
         }
 
-        
+
         function addVolumeCylinder() {
             volumeCylinderShow = true;
         }
@@ -1729,7 +1723,7 @@
     <div class="container-top">
         <div class="row">
 
-            
+
             <div class="col1">
                 <table>
                     <tbody>
@@ -1754,32 +1748,32 @@
                                 <div><b>r (m) :</b>
                                     <input class="cons-input" id="cons-spherical-from-r" type="number" step="0.1"
                                         min="0.1" max="3" style="margin-left: 20px;">
-                                    <input id = "rFrom"type="checkbox"  style="text-align:center;">
+                                    <input id="rFrom" type="checkbox" style="text-align:center;" checked=true on>
                                     Show
                                     <input class="cons-input" id="cons-spherical-to-r" type="number" step="0.1"
                                         min="0.1" max="3">
-                                        <input id = "rTO"type="checkbox"  style="text-align:center;">
+                                    <input id="rTo" type="checkbox" style="text-align:center;" checked=true on>
                                     Show
-                                    
+
                                 </div>
                                 <div><b>&theta; (deg) :</b>
                                     <input class="cons-input" id="cons-spherical-from-theta" type="number" step="5"
                                         min="0" max="90">
-                                    <input id = "thetaFrom"type="checkbox"  style="text-align:center;">
+                                    <input id="thetaFrom" type="checkbox" style="text-align:center;" checked=true on>
                                     Show
                                     <input class="cons-input" id="cons-spherical-to-theta" type="number" step="5"
                                         min="0" max="90">
-                                        <input id= "thetaTo" type="checkbox" style="text-align:center;">
+                                    <input id="thetaTo" type="checkbox" style="text-align:center;" checked=true on>
                                     Show
                                 </div>
                                 <div><b>&phi; (deg) :</b>
                                     <input class="cons-input" id="cons-spherical-from-phi" type="number" step="5"
                                         min="0" max="90" style="margin-left: 2px;">
-                                    <input id = "phiTo"type="checkbox" style="text-align:center;">
+                                    <input id="phiTo" type="checkbox" style="text-align:center;" checked=true on>
                                     Show
                                     <input class="cons-input" id="cons-spherical-to-phi" type="number" step="5" min="0"
                                         max="90">
-                                        <input id = "phiFrom" type="checkbox" style="text-align:center;">
+                                    <input id="phiFrom" type="checkbox" style="text-align:center;" checked=true on>
                                     Show
 
                                 </div>
