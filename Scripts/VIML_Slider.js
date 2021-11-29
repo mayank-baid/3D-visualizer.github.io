@@ -1,7 +1,6 @@
 function VIML_Slider() {
   this.createUI = function (p, d, o, k, b) {
     var g = this
-    console.log(this)
     this.priFix = k
     var l = document.getElementById(p)
     var f = 'dot'
@@ -60,7 +59,7 @@ function VIML_Slider() {
       range: 'min',
       step: b[2],
       slide: function (r, s) {
-        g.priValueWidget.value = (s.value.toFixed(k) * 180) / Math.PI
+        g.priValueWidget.value = s.value.toFixed(k)
         g.onChange(g.getValue())
       },
     })
@@ -177,7 +176,7 @@ function VIML_Slider() {
   this.disableMax = function () {
     this.priMaxWidget.disabled = true
   }
-  this.onChange = function (a) {}
+  this.onChange = function (a) { }
   this.extraWidget = document.createElement('label')
   this.defTickFontSize = 10
   this.defSliderHeight = 35
