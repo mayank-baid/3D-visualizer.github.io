@@ -1,73 +1,74 @@
-*{
+* {
   font-size: 16px;
 }
 
-body{
+body {
   font-size: 14.5px;
 }
 
-.check{
-  height:30px;
-  background-color:green;
+.check {
+  height: 30px;
+  background-color: green;
 }
 
-.col-lg-7-5{
+.col-lg-7-5 {
   position: relative;
   width: 62.5%;
   padding-right: 15px;
   padding-left: 15px;
 }
 
-.col-lg-4-5{
+.col-lg-4-5 {
   position: relative;
   width: 37.5%;
   padding-right: 15px;
   padding-left: 15px;
 }
 
-.inline{
+.inline {
   display: inline-flex;
 }
 
-.whiteBg{
+.whiteBg {
   background-color: white;
   width: 170px;
   padding-left: 10px;
   height: 23px;
 }
 
-.addMargintext{
+.addMargintext:nth-of-type(2) {
+  margin-top: 10px;
+}
+.addMargintext:nth-of-type(3) {
   margin-top: 10px;
 }
 
-.addMarginBlock{
+.addMarginBlock {
   margin-top: 23px;
   margin-bottom: 14px;
 }
 
-
-.cons-input{
+.cons-input {
   width: 100px;
   height: 24px;
   margin: 4px;
 }
 
-.cons-input-submit{
+.cons-input-submit {
   width: 100px;
-    margin-left: 10px;
-    margin-top: 19px;
-    height: 24px;
-    margin-right:10px;
+  margin-left: 10px;
+  margin-top: 19px;
+  height: 24px;
+  margin-right: 10px;
 }
 
-.cons-input-remove{
+.cons-input-remove {
   width: 100px;
-  
 }
 
-.ui-slider-range{
+.ui-slider-range {
   /* background: sienna; */
-  background: linear-gradient(45deg,#c2d60a,black);
+  background: linear-gradient(45deg, #c2d60a, black);
 }
 
 video {
@@ -78,36 +79,34 @@ video {
   object-fit: cover;
 }
 
-.row{
-  width: inherit;
+.row {
   display: flex;
 }
-.col1{
+.col1 {
   width: 800px;
   margin-right: 10px;
 }
 
-.col2{
- 
+.col2 {
   width: 500px;
   height: 500px;
 }
 
-.col-lg-4{
+.col-lg-4 {
   display: inline-block;
   width: 166px;
 }
 
-.col-lg-2{
+.col-lg-2 {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-h5{
+h5 {
   padding-left: 10px;
-  margin:10px;
+  margin: 10px;
 }
 
-.projector{
-  width:484p;
+.projector {
+  width: 484p;
 }
