@@ -60,7 +60,7 @@
 
     <script>
         //import three js  library functions
-       
+
 
         // jQuerUI Setting
         var remainingWidth = -1;
@@ -492,10 +492,7 @@
                 return;
             }
 
-            // if(phiFrom > 90 || phiFrom<0 || phiTo > 90 || phiTo < 0){
-            //     alert("all angle must be in [0,90]");
-            //     removeVolumeSpherical();
-            // }
+
 
 
             phiFrom *= deg2rad;
@@ -1438,13 +1435,13 @@
             }
         }
 
-        function AutoRotationMode(){
-            
+        function AutoRotationMode() {
+
             controls.autoRotate = true;
             camera.lookAt(constR_scene)
         }
 
-        function StopRotationMode(){
+        function StopRotationMode() {
             controls.autoRotate = false;
         }
 
