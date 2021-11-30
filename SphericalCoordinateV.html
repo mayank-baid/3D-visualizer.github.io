@@ -79,7 +79,7 @@
         var deg2rad = Math.PI / 180.0;
 
         // variables
-        var vR_factor = 10; // coordinates ( 0< R < 1 ) --> scene ratio
+        var vR_factor = 100; // coordinates ( 0< R < 1 ) --> scene ratio
         var vR = vR_factor * 0.3; // spherical coordinate R
         var vTheta = 0.5 * Math.PI; // spherical coordinate Theta (radians)
         var vPhi = 0.5 * Math.PI; // spherical coordinate Phi (radians)
@@ -121,17 +121,12 @@
                 removeVolumeSpherical();
                 return;
             }
-            if (!(document.getElementById("thetaFrom").checked) && !(document.getElementById("thetaTo").checked
-            )) {
-                removeVolumeCylinder();
-                return;
-            }
 
             if (!(document.getElementById("rFrom").checked)) {
-                rFrom = 0;
+                rFrom = 0.00001;
             }
             if (!(document.getElementById("rTo").checked)) {
-                rTo = 0;
+                rTo = 0.00001;
             }
             if (!(document.getElementById("thetaFrom").checked)) {
                 thetaFrom = 0;
