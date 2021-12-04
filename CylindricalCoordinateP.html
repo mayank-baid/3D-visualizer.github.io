@@ -59,6 +59,8 @@
     <!-- <script src="Scripts/Mukta_Bold.json"></script> -->
 
     <script>
+        //import three js  library functions
+
 
         // jQuerUI Setting
         var remainingWidth = -1;
@@ -490,10 +492,6 @@
                 return;
             }
 
-            // if(phiFrom > 90 || phiFrom<0 || phiTo > 90 || phiTo < 0){
-            //     alert("all angle must be in [0,90]");
-            //     removeVolumeSpherical();
-            // }
 
 
             phiFrom *= deg2rad;
@@ -1461,24 +1459,6 @@
                 renderer.setSize(800, 500);
             }
         }
-
-        var trace_x;
-        var trace_y;
-        var trace_z;
-
-        function setObvPointTrace() {
-            if (document.getElementById("trace_box").checked == true) {
-                observationPointTrace = new THREE.Group();
-                console.log("checked");
-                trace_x = obvPoint_scene.position.x;
-                trace_y = obvPoint_scene.position.y;
-                trace_z = obvPoint_scene.position.z;
-            }
-            else {
-                scene.remove(observationPointTrace);
-            }
-        }
-
 
         function AutoRotationMode() {
 
