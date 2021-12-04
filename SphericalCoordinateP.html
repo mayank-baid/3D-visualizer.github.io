@@ -911,11 +911,13 @@
 
         //Theta以Degree呈現
         function Deg1() {
+
             document.getElementById("vimlsli_Theta").innerHTML = "";
+            // document.getElementById("rad1").checked == false;
             var P1_vimlslider_Theta = new VIML_Slider();
-            document.getElementById("rad1").checked = false;
+
             P1_vimlslider_Theta.defSliderWidth = 350;
-            P1_vimlslider_Theta.createUI('vimlsli_Theta', "<i>&theta;</i> = ", "deg", 3, [-180, Infinity, 0.001]);
+            P1_vimlslider_Theta.createUI('vimlsli_Theta', "<i>&theta;</i> = ", "deg", 3, [0, Infinity, 0.001]);
             P1_vimlslider_Theta.disableMax();
             P1_vimlslider_Theta.disableMin();
             P1_vimlslider_Theta.setRange(0, 180);
@@ -923,7 +925,7 @@
             P1_vimlslider_Theta.setValueNE(vTheta * 180 / Math.PI);
 
 
-            P1_vimlslider_Theta.setTick([[-180, "-180"], [-90, "-90"], [0, "0"], [90, "90"], [180, "180"]]);
+            P1_vimlslider_Theta.setTick([[0, "0"], [90, "90"], [180, "180"], [270, "270"], [360, "360"]]);
             P1_vimlslider_Theta.onChange = function (vValue) {
                 vTheta = vValue * Math.PI / 180;
                 UpdatePoint();
@@ -937,11 +939,13 @@
             show_Cylindrical();
             show_Spherical();
         }
+
+
         //Theta以rad呈現
         function Rad1() {
             document.getElementById("vimlsli_Theta").innerHTML = "";
             var P1_vimlslider_Theta = new VIML_Slider();
-            document.getElementById("deg1").checked = false;
+            // document.getElementById("deg1").checked = false;
             P1_vimlslider_Theta.defSliderWidth = 350;
             P1_vimlslider_Theta.createUI('vimlsli_Theta', "<i>&theta;</i> = ", "rad", 4, [-180, Infinity, 0.001]);
             P1_vimlslider_Theta.disableMax();
@@ -950,7 +954,7 @@
             SetUIValue_vTheta(Math.PI / 3);
             P1_vimlslider_Theta.setValueNE(vTheta);
 
-            P1_vimlslider_Theta.setTick([[-Math.PI, "-π"], [-Math.PI / 2, "-π/2"], [0, "0"], [Math.PI / 2, "π/2"], [Math.PI, "π"]]);
+            P1_vimlslider_Theta.setTick([[0, "0"], [Math.PI / 2, "π/2"], [Math.PI , "π"], [3*Math.PI / 2, "3π/2"], [2*Math.PI, "2π"]]);
             P1_vimlslider_Theta.onChange = function (vValue) {
                 vTheta = vValue;
                 UpdatePoint();
@@ -969,16 +973,16 @@
             document.getElementById("vimlsli_Phi").innerHTML = "";
             var P1_vimlslider_Phi = new VIML_Slider();
 
-            document.getElementById("rad2").checked = false;
+            // document.getElementById("rad2").checked = true;
             P1_vimlslider_Phi.defSliderWidth = 350;
-            P1_vimlslider_Phi.createUI('vimlsli_Phi', "<i>&phi; </i>= ", "deg", 3, [-180, Infinity, 0.001]);
+            P1_vimlslider_Phi.createUI('vimlsli_Phi', "<i>&phi; </i>= ", "deg", 3, [0, Infinity, 0.001]);
             P1_vimlslider_Phi.disableMax();
             P1_vimlslider_Phi.disableMin();
-            P1_vimlslider_Phi.setRange(-180, 180);
+            P1_vimlslider_Phi.setRange(0, 360);
             SetUIValue_vPhi(Math.PI / 6);
             P1_vimlslider_Phi.setValueNE(vPhi * 180 / Math.PI);
 
-            P1_vimlslider_Phi.setTick([[-180, "-180"], [-90, "-90"], [0, "0"], [90, "90"], [180, "180"]]);
+            P1_vimlslider_Phi.setTick([[0, "0"], [90, "90"], [180, "180"], [270, "270"], [360, "360"]]);
             P1_vimlslider_Phi.onChange = function (vValue) {
                 vPhi = vValue * Math.PI / 180;
                 UpdatePoint();
@@ -997,16 +1001,16 @@
             document.getElementById("vimlsli_Phi").innerHTML = "";
             var P1_vimlslider_Phi = new VIML_Slider();
 
-            document.getElementById("deg2").checked = false;
+            // document.getElementById("deg2").checked = false;
             P1_vimlslider_Phi.defSliderWidth = 350;
             P1_vimlslider_Phi.createUI('vimlsli_Phi', "<i>&phi; </i>= ", "rad", 4, [-10, Infinity, 0.001]);
             P1_vimlslider_Phi.disableMax();
             P1_vimlslider_Phi.disableMin();
-            P1_vimlslider_Phi.setRange(-Math.PI, Math.PI);
+            P1_vimlslider_Phi.setRange(0, 2*Math.PI);
             SetUIValue_vPhi(Math.PI / 6);
             P1_vimlslider_Phi.setValueNE(vPhi);
 
-            P1_vimlslider_Phi.setTick([[-Math.PI, "-π"], [-Math.PI / 2, "-π/2"], [0, "0"], [Math.PI / 2, "π/2"], [Math.PI, "π"]]);
+            P1_vimlslider_Phi.setTick([[0, "0"], [Math.PI / 2, "π/2"], [Math.PI , "π"], [3*Math.PI / 2, "3π/2"], [2*Math.PI, "2π"]]);
             P1_vimlslider_Phi.onChange = function (vValue) {
                 vPhi = vValue;
                 UpdatePoint();
@@ -1019,6 +1023,26 @@
             show_Cylindrical();
             show_Spherical();
         };
+
+
+        //checke checkbox is checked or not
+        function changeUnits() {
+            var checkbox1 = document.getElementById('rad1');
+            var checkbox2 = document.getElementById('rad2');
+            if (checkbox1.checked != true) {
+                Rad1();
+
+            } else {
+                Deg1();
+            }
+            if (checkbox2.checked != true) {
+                Rad2();
+            }
+            else {
+                Deg2();
+            }
+
+        }
 
         //將數值取到小數點後兩位的值
         function round_up_two_decimal(num) {
@@ -1281,7 +1305,7 @@
 
             zScene.position.set(-5, 150, 0);
             scene.add(zScene);
-            
+
 
             //////////////////////////////////
 
@@ -1456,13 +1480,13 @@
         }
 
 
-        function AutoRotationMode(){
-            
+        function AutoRotationMode() {
+
             controls.autoRotate = true;
             camera.lookAt(constR_scene)
         }
 
-        function StopRotationMode(){
+        function StopRotationMode() {
             controls.autoRotate = false;
         }
 
@@ -1761,12 +1785,14 @@
                     <div class="col-lg-4">
                         <div id="vimlsli_R" class="cBoxSlider"></div>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="whiteBg">
                             <input type="checkbox" id="fixed_R" onchange="ConstR_check()"> Show Surface
                         </div>
 
                     </div>
+
                     <div class="col-lg-4">
                         <div class="whiteBg">
                             <input type="checkbox" id="aR" onchange="Unit_vector_R_check()" style="text-align:center;">
@@ -1781,6 +1807,9 @@
                     <div class="col-lg-4">
                         <div id="vimlsli_Theta" class="cBoxSlider"></div>
                     </div>
+
+                    <input type="checkbox" id="rad1" onchange="changeUnits()">Degree
+
                     <div class="col-lg-4">
                         <div class="whiteBg">
                             <input type="checkbox" id="fixed_Theta" onchange="ConstTheta_check()"> Show Surface
@@ -1801,6 +1830,10 @@
                     <div class="col-lg-4">
                         <div id="vimlsli_Phi" class="cBoxSlider"></div>
                     </div>
+
+                    <input type="checkbox" id="rad2" onchange="changeUnits()">Degree
+
+
                     <div class="col-lg-4">
                         <div class="whiteBg">
                             <input type="checkbox" id="fixed_Phi" onchange="ConstPhi_check()"> Show Surface
@@ -1820,7 +1853,7 @@
                 <div class="addMarginBlock" id="addBorder">
                     <div class="addMargintext">Cartesian Coordinates (<i>x</i>, <i>y</i>, <i>z</i>) = <input type="text"
                             id="coordinate_1" size=15 readonly> (m, m, m)</div>
-                    <div class="addMargintext">Cylindrical Coordinates (<i>&rho;</i>, <i>&phi;</i>, <i>z</i>) = <input
+                    <div class="addMargintext" style="display: none;">Cylindrical Coordinates (<i>&rho;</i>, <i>&phi;</i>, <i>z</i>) = <input
                             type="text" id="coordinate_2" size=15 readonly> (m, deg, m)</div>
                     <div class="addMargintext">Spherical Coordinates (<i>r</i>, <i>&theta;</i>, <i>&phi;</i>) = <input
                             type="text" id="coordinate_3" size=15 readonly> (m, deg, deg)</div>
@@ -1837,6 +1870,7 @@
             <input type="submit" onclick="fullScreenMode()" class="cons-input-mode" value="Full Screen Mode">
             <input type="submit" onclick="AutoRotationMode()" class="cons-input-mode" value="Auto Roation">
             <input type="submit" onclick="StopRotationMode()" class="cons-input-mode" value="Stop Rotation">
+
 
         </div>
 
@@ -1916,6 +1950,9 @@
                 show_Spherical();
 
             };
+
+
+
 
 
         </script>
