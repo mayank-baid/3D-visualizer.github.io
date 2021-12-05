@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 html {
-  height: 110vh;
+  height: 128vh;
 }
 
 body {
@@ -42,6 +42,7 @@ p {
 .flexbox {
   display: flex;
   justify-content: center;
+  /* margin-top: 20px; */
 }
 .logogroup,
 .footer {
@@ -62,22 +63,23 @@ p {
   display: flex;
   justify-content: center;
 }
-.footer-2 h3,
-.footer-2_ h3 {
+.footer-2 h3 {
   margin-top: 40px;
 }
-.footer-2 img,
-.footer-2_ img {
+.footer-2 img {
   width: 80px;
   height: 80px;
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 20px;
 }
-.footer-2_ {
+/* .footer-2_ {
   display: flex;
   justify-content: flex-end;
   position: absolute;
   bottom: 15%;
   right: 2%;
+} */
+.row1 {
+  margin-top: 40px;
 }
