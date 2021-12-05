@@ -483,7 +483,7 @@
             scene = new THREE.Scene();
             
             // camera = new THREE.OrthographicCamera( -200, 200, 125, -100 );
-            camera = new THREE.PerspectiveCamera(50, (window.innerWidth/3) /window.innerHeight, 0.1, 3000);
+            camera = new THREE.PerspectiveCamera(50, (window.innerWidth/3) /(window.innerHeight / 1.5), 0.1, 3000);
 
 
 
@@ -496,7 +496,7 @@
             renderer = new THREE.WebGLRenderer();
 
 
-            renderer.setSize(window.innerWidth/3, window.innerHeight);
+            renderer.setSize(window.innerWidth/3, (window.innerHeight)/ 1.5 );
 
             renderer.domElement.id = "mycanvas";
             container.appendChild(renderer.domElement);
@@ -684,7 +684,7 @@
             scene2 = new THREE.Scene();
 
             // camera = new THREE.OrthographicCamera( -200, 200, 125, -100 );
-            camera2 = new THREE.PerspectiveCamera(50, (window.innerWidth/3) / window.innerHeight, 0.1, 3000);
+            camera2 = new THREE.PerspectiveCamera(50, (window.innerWidth/3) / (window.innerHeight / 1.5), 0.1, 3000);
 
 
 
@@ -696,7 +696,7 @@
             renderer2 = new THREE.WebGLRenderer();
 
 
-            renderer2.setSize(window.innerWidth/3, window.innerHeight);
+            renderer2.setSize(window.innerWidth/3, window.innerHeight / 1.5);
 
             renderer2.domElement.id = "mycanvas2";
             container2.appendChild(renderer2.domElement);
@@ -882,7 +882,7 @@
             scene3 = new THREE.Scene();
 
             // camera = new THREE.OrthographicCamera( -200, 200, 125, -100 );
-            camera3 = new THREE.PerspectiveCamera(50, (window.innerWidth/3) / window.innerHeight, 0.1, 3000);
+            camera3 = new THREE.PerspectiveCamera(50, (window.innerWidth/3) / (window.innerHeight / 1.5), 0.1, 3000);
 
 
 
@@ -894,7 +894,7 @@
             renderer3 = new THREE.WebGLRenderer();
 
 
-            renderer3.setSize(window.innerWidth/3, window.innerHeight);
+            renderer3.setSize(window.innerWidth/3, window.innerHeight / 1.5);
 
             renderer3.domElement.id = "mycanvas3";
             container3.appendChild(renderer3.domElement);
